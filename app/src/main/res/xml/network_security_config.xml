@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Submitted default (stages 4-5): trust system + user CAs so User-installed
+  mitmproxy certificate can decrypt TLS during the lab.
+  For stages 1-3 use network_security_config_no_user_ca.xml
+  For bonus (system CA only) use network_security_config_system_only.xml
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>
